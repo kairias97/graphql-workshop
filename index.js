@@ -15,7 +15,7 @@ require('dotenv').config()
 async function startServer() {
     const app = express();
     const PORT = process.env.PORT;
-
+    debugger;
     await mongoose.connect(process.env.DB_STRING, { 
             useUnifiedTopology: true, 
             useNewUrlParser: true,
