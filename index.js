@@ -30,7 +30,9 @@ async function startServer() {
     // Crear una instancia de Apollo Server
     const server = new ApolloServer({ 
         typeDefs: [typeDefs, categorySchema, productSchema], 
-        resolvers: [categoryResolver, productResolver] 
+        resolvers: [categoryResolver, productResolver],
+        introspection: process.env.ENVIRONMENT == "DEV", //For learning purposes only, should be disabled in production
+        playground:  process.env.ENVIRONMENT == "DEV", //For learning purposes only, should be disabled in production
     });
 
     server.applyMiddleware({app});
